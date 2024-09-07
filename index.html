@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Enable/disable the search button based on input
+        function toggleButtonState() {
+            const searchInput = document.getElementById('search-input').value;
+            const searchButton = document.getElementById('search-button');
+            const clearButton = document.getElementById('clear-button');
+            
+            // Enable the button only if there's some text in the input field
+            searchButton.disabled = searchInput.trim() === '';
+            clearButton.style.display = searchInput.trim() === '' ? 'none' : 'block';
+        }
+
+        function redirectToGoogle() {
+            const query = document.getElementById('search-input').value;
+            if (query.trim() !== '') {
+                const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                window.location.href = googleSearchUrl;
+            }
+        }
+
+        // Clear the input when clear button is clicked
+        function clearInput() {
+            document.getElementById('search-input').value = '';
+            toggleButtonState(); // Disable button after clearing input
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="google-logo">
+        </header>
+        <main class="content">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search Google or type a URL" oninput="toggleButtonState()">
+                <button id="clear-button" onclick="clearInput()" style="display:none;">&times;</button>
+                <button id="search-button" onclick="redirectToGoogle()" disabled>Search</button>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Background apps section -->
+    <div class="google-apps-background">
+        <div class="apps-icons">
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="yt.webp" alt="YouTube Icon">
+                <span>YouTube</span>
+            </a>
+            <a href="https://mail.google.com" target="_blank">
+                <img src="gmail.webp" alt="Gmail Icon">
+                <span>Gmail</span>
+            </a>
+            <a href="https://drive.google.com" target="_blank">
+                <img src="gdrive2.png" alt="Google Drive Icon">
+                <span>Drive</span>
+            </a>
+            <a href="https://maps.google.com" target="_blank">
+                <img src="maps.webp" alt="Google Maps Icon">
+                <span>Maps</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
