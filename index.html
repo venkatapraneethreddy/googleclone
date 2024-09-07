@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script>
-        // Enable/disable the search button based on input
+        
         function toggleButtonState() {
             const searchInput = document.getElementById('search-input').value;
             const searchButton = document.getElementById('search-button');
             const clearButton = document.getElementById('clear-button');
             
-            // Enable the button only if there's some text in the input field
+            
             searchButton.disabled = searchInput.trim() === '';
             clearButton.style.display = searchInput.trim() === '' ? 'none' : 'block';
         }
@@ -26,10 +26,10 @@
             }
         }
 
-        // Clear the input when clear button is clicked
+        
         function clearInput() {
             document.getElementById('search-input').value = '';
-            toggleButtonState(); // Disable button after clearing input
+            toggleButtonState(); 
         }
     </script>
 </head>
@@ -40,14 +40,14 @@
         </header>
         <main class="content">
             <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search Google or type a URL" oninput="toggleButtonState()">
+                <input type="text" id="search-input" placeholder="Search Google type a URL" oninput="toggleButtonState()">
                 <button id="clear-button" onclick="clearInput()" style="display:none;">&times;</button>
                 <button id="search-button" onclick="redirectToGoogle()" disabled>Search</button>
             </div>
         </main>
     </div>
     
-    <!-- Background apps section -->
+    
     <div class="google-apps-background">
         <div class="apps-icons">
             <a href="https://www.youtube.com" target="_blank">
